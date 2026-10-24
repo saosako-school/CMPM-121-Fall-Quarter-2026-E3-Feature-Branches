@@ -59,6 +59,35 @@ mouth.setAttribute("stroke-width", "4");
 mouth.setAttribute("stroke-linecap", "round");
 face.append(mouth);
 
+const mouthGradient = document.createElementNS(
+  "http://www.w3.org/2000/svg",
+  "linearGradient",
+);
+mouthGradient.setAttribute("id", "mouthGradient");
+mouthGradient.setAttribute("x1", "0%");
+mouthGradient.setAttribute("x2", "0%");
+mouthGradient.setAttribute("y1", "0%");
+mouthGradient.setAttribute("y2", "100%");
+
+const stop1 = document.createElementNS("http://www.w3.org/2000/svg", "stop");
+stop1.setAttribute("offset", "0%");
+stop1.setAttribute("stop-color", "#ff0000");
+
+const stop2 = document.createElementNS("http://www.w3.org/2000/svg", "stop");
+stop2.setAttribute("offset", "100%");
+stop2.setAttribute("stop-color", "#000000");
+
+mouthGradient.append(stop1);
+mouthGradient.append(stop2);
+
+face.append(mouthGradient);
+
+const frown = document.createElementNS("http://www.w3.org/2000/svg", "path");
+frown.setAttribute("d", "M 60 160 C 75 110, 125 110, 140 160");
+frown.setAttribute("stroke", "#000000");
+frown.setAttribute("fill", "url(#mouthGradient)");
+face.append(frown);
+
 portrait.append(face);
 
 spin.addEventListener("click", () => {
