@@ -7,7 +7,10 @@ function buildFace() {
   const face = document.createElementNS("http://www.w3.org/2000/svg", "svg");
   face.setAttribute("viewBox", "0 0 200 200");
   face.setAttribute("role", "img");
-  face.setAttribute("aria-label", "A neutral face");
+  face.setAttribute(
+    "aria-label",
+    "A neutral face with several freckles around the center of the face",
+  );
 
   const head = document.createElementNS(
     "http://www.w3.org/2000/svg",
@@ -67,7 +70,31 @@ function buildFace() {
   return face;
 }
 
+function makeRandomInt(min: number, max: number): number {
+  return Math.floor(Math.random() * (max - min)) + min;
+}
+function makeFreckle() {
+  const radius = makeRandomInt(2, 5);
+  const x = makeRandomInt(25 + radius, 175 - radius);
+  const y = makeRandomInt(82 + radius, 130 - radius);
+
+  const freckle = document.createElementNS(
+    "http://www.w3.org/2000/svg",
+    "circle",
+  );
+  freckle.setAttribute("cx", `${x}`);
+  freckle.setAttribute("cy", `${y}`);
+  freckle.setAttribute("r", `${radius}`);
+  freckle.setAttribute("stroke", "#b75a28");
+  freckle.setAttribute("fill", "#b75a28");
+
+  face.append(freckle);
+}
+
 const face = buildFace();
+for (let i = 0; i < 100; ++i) {
+  makeFreckle();
+}
 portrait.append(face);
 spin.addEventListener("click", () => {
   // Restart rather than accumulate simultaneous animations on repeated clicks.
