@@ -23,3 +23,7 @@ The color and curves will depict a person with a large frown (like this: D:) gra
 the gradients will create a pretty visual and add some nice color to look at
 
 I wanted to create gradient hair, but due to the struggle I had to calculate points along the ellipse with A, I decided against anything that may require me to calculate anything with respect to the ellipse itself. After creating the mouth, I realized that it would look interesting to give the mouth a gradient from red to black to give it more depth. The gradient took so much time and effort that I decided against making the eyes gradient as my current changes already met the requirements for the assignment.
+
+## Chosen Branch: A
+
+The chosen branch was branch A. I chose this branch because, as mentioned earlier, branch A was the easiest to write and, likely as a result, it seemed the easiest to merge with the refactored main branch. The other two were more complicated and I had more trouble getting them to work when I wrote them, and I didn't want to deal with testing everything again and hoping I don't have to fix them if the rebasing doesn't go cleanly. Branch A's face has a neutral expression with a spread of freckles in the center of the face. The changes made for the other two directions (B: Assets and C: Color and Curves) remain on their respective branches.
